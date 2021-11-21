@@ -27,7 +27,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 /* SET UP SNIPPET ENDS */
 
-/* wrapper styles */
+/* WRAPER STYLING */
 .wrapper{
   max-width: 1200px;
   width: 80%;
@@ -38,22 +38,36 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 html{
   font-size: 62.5%;
   scroll-behavior: smooth;
-  background-color: lightgray;
 }
 
-.wrapper {
-  border: 2px solid white;
-}
-
-h1{
-  color: rgb(30, 69, 102);
-}
-
+/* HEADER STYLING */
 header {
-  background: lightgray;
+  background: green;
+  font-size: 2rem;
+  background:#FFE4E1;
 }
 
 .sideNav a {
   padding: 10px;
   font-size: 2rem;
+}
+
+/* FOOTER STYLING */
+footer{
+  background: #ac7b75;
+  font-size: 2rem;
+}
+
+.container{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 30%;
+}
+.grid {
+  background-color: purple;
+}
+
+.grid h1{
+  font-size: 15px;
+  width: 25%;
 }

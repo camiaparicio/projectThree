@@ -9,54 +9,57 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+// COMPONENTS
+import Footer from './Footer'
+import Header from './Header'
+// import Products from './Products'
+
+
 function App() {
 
   // piece of state to hold the products
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState([]);
 
   useEffect( () => {
   // in here well call the api using axios
 
   axios({
-    url: 'https://fakestoreapi.com/products/categories', 
+    url: 'https://fakestoreapi.com/products', 
     method: 'GET',
     responseType: 'json',
-    // params: {
-    //   
-    // }
   })
   .then(response => {
-    console.log(response)
     setProduct(response.data)
-  })
-}, [])
+    // console.log(response.data)
+  });
+}, []);
 
-
-  return (
-    <div className="App">
-      <div className='wrapper'>
-        <header>
-          <h1>welcome to the fake store </h1>
-
-          
-              <div className="sideNav">
-                <ul>
-                {
-                  product.map( data => {
-                    return(
-                      
-                    <li> <a href="#">{data}</a> </li>
-                    )
-                  })
-                }
-                </ul>
-              </div>
-
-
-        </header>
-      </div>
+  return(
+    <div className='App'>
+      <Header />
+      {
+        product.map( (values) => {
+            console.log(values)
+            return(
+              <>
+                <div className="wrapper">
+                  <div className="container">
+                  <div className="grid">
+                    <img src="{values.image}" alt="" />
+                      <h2>{values.title}</h2>
+                        <h3>{values.price}</h3>
+                          <h4>{values.description}</h4>
+                  </div>
+                  </div>
+                </div>
+              </>
+            )
+        })
+      }
+      <Footer />
     </div>
-  );
+ );
+
 }
 
 export default App;
