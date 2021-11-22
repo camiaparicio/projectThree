@@ -12,13 +12,15 @@ import { useEffect, useState } from 'react';
 // COMPONENTS
 import Footer from './Footer'
 import Header from './Header'
-// import Products from './Products'
+import './App.css'
+import Cart from './Cart'
 
 
 function App() {
 
   // piece of state to hold the products
   const [product, setProduct] = useState([]);
+  // const [carItems, setCartItems] = useState([])
 
   useEffect( () => {
   // in here well call the api using axios
@@ -37,18 +39,25 @@ function App() {
   return(
     <div className='App'>
       <Header />
+      {/* <Cart carItems={cartItems}/> */}
       {
         product.map( (values) => {
-            console.log(values)
+            // console.log(values)
             return(
               <>
-                <div className="wrapper">
-                  <div className="container">
-                  <div className="grid">
-                    <img src="{values.image}" alt="" />
+              <div>
+                <h1>categories</h1>
+                <ul>
+                  <li> {values.categories}</li>
+                </ul>
+              </div>
+                <div className="container">
+                  <div className="box">
+                  <div className="content">
+                    <img src={values.image} alt={values.title} />
                       <h2>{values.title}</h2>
                         <h3>{values.price}</h3>
-                          <h4>{values.description}</h4>
+                        <button>add to cart</button>
                   </div>
                   </div>
                 </div>
