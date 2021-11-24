@@ -14,7 +14,6 @@ import Footer from './Footer'
 import Header from './Header'
 import Items from './Items'
 import './App.css'
-// import PhotoForm from './PhotoForm';
 
 
 function App() {
@@ -32,14 +31,6 @@ function App() {
     }
     // END OF ADD TO CART
 
-    // // THIS IS FOR CATEGORIES
-  
-    // const getPhotos = (e) => {
-    //   e.preventDefault();
-    //   console.log('getting categories');
-    // }
-    // // END OF CATEGORIES
-
 
   useEffect( () => {
   // in here well call the api using axios
@@ -55,14 +46,11 @@ function App() {
   });
 }, []);
 
+
   return(
 <>
     <div className='App'>
         <Header cart={product} click={product}/>
-
-    {/* dropdown component*/}
-     {/* <PhotoForm getPhotos={getPhotos} /> */}
-    {/* end of dropdown component*/}
 
     {product.length === 0
           ? ( 
