@@ -12,15 +12,35 @@ import { useEffect, useState } from 'react';
 // COMPONENTS
 import Footer from './Footer'
 import Header from './Header'
+import Items from './Items'
+// import Cart from './Cart'
 import './App.css'
-import Cart from './Cart'
 
 
 function App() {
 
   // piece of state to hold the products
   const [product, setProduct] = useState([]);
-  // const [carItems, setCartItems] = useState([])
+
+
+    // this adds to cart 
+    const [cart, setCart] = useState([]);
+
+    const addToCart = (product) => {
+        console.log('add to cart +1')
+        setCart([...cart, product]);
+    }
+    // end of add to cart
+
+    // this is categories
+    const [categories, setCategories] = useState([])
+
+    const chooseCategory = (category) => {
+      console.log('you clicked a category')
+      setCategories([...categories, category])
+    }
+    // end of categories
+
 
   useEffect( () => {
   // in here well call the api using axios
@@ -32,43 +52,34 @@ function App() {
   })
   .then(response => {
     setProduct(response.data)
-    // console.log(response.data)
+    console.log(response.data)
   });
 }, []);
 
   return(
+<>
     <div className='App'>
-      <Header />
-      {/* <Cart carItems={cartItems}/> */}
-      {
-        product.map( (values) => {
-            // console.log(values)
-            return(
-              <>
-              <div>
-                <h1>categories</h1>
-                <ul>
-                  <li> {values.categories}</li>
-                </ul>
-              </div>
-                <div className="container">
-                  <div className="box">
-                  <div className="content">
-                    <img src={values.image} alt={values.title} />
-                      <h2>{values.title}</h2>
-                        <h3>{values.price}</h3>
-                        <button>add to cart</button>
-                  </div>
-                  </div>
-                </div>
-              </>
-            )
-        })
-      }
-      <Footer />
-    </div>
- );
+        <Header cart={product} click={product}/>
 
+    <div className='categories'>
+      <ul>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Men's Fashion</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Women's Fashion</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Electronics</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Jewelery</a></li>
+      </ul>
+    </div>
+    
+    {product.length === 0
+          ? ( 
+            <div className="loader"></div>
+            ) : (
+        <Items inventory={product} cart={addToCart}/>
+          )}
+        <Footer />
+      </div>
+</>
+  )
 }
 
 export default App;
