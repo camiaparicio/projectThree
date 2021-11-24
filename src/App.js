@@ -13,8 +13,8 @@ import { useEffect, useState } from 'react';
 import Footer from './Footer'
 import Header from './Header'
 import Items from './Items'
-// import Cart from './Cart'
 import './App.css'
+import PhotoForm from './PhotoForm';
 
 
 function App() {
@@ -23,23 +23,22 @@ function App() {
   const [product, setProduct] = useState([]);
 
 
-    // this adds to cart 
+    // THIS ADDS TO CART
     const [cart, setCart] = useState([]);
 
     const addToCart = (product) => {
         console.log('add to cart +1')
         setCart([...cart, product]);
     }
-    // end of add to cart
+    // END OF ADD TO CART
 
-    // this is categories
-    const [categories, setCategories] = useState([])
-
-    const chooseCategory = (category) => {
-      console.log('you clicked a category')
-      setCategories([...categories, category])
+    // THIS IS FOR CATEGORIES
+  
+    const getPhotos = (e) => {
+      e.preventDefault();
+      console.log('getting categories');
     }
-    // end of categories
+    // END OF CATEGORIES
 
 
   useEffect( () => {
@@ -61,15 +60,10 @@ function App() {
     <div className='App'>
         <Header cart={product} click={product}/>
 
-    <div className='categories'>
-      <ul>
-        <li onClick={ () => {chooseCategory} }> <a href="#">Men's Fashion</a></li>
-        <li onClick={ () => {chooseCategory} }> <a href="#">Women's Fashion</a></li>
-        <li onClick={ () => {chooseCategory} }> <a href="#">Electronics</a></li>
-        <li onClick={ () => {chooseCategory} }> <a href="#">Jewelery</a></li>
-      </ul>
-    </div>
-    
+    {/* dropdown component*/}
+     <PhotoForm getPhotos={getPhotos} />
+    {/* end of dropdown component*/}
+
     {product.length === 0
           ? ( 
             <div className="loader"></div>
