@@ -14,7 +14,7 @@ import Footer from './Footer'
 import Header from './Header'
 import Items from './Items'
 import './App.css'
-import PhotoForm from './PhotoForm';
+// import PhotoForm from './PhotoForm';
 
 
 function App() {
@@ -32,13 +32,13 @@ function App() {
     }
     // END OF ADD TO CART
 
-    // THIS IS FOR CATEGORIES
+    // // THIS IS FOR CATEGORIES
   
-    const getPhotos = (e) => {
-      e.preventDefault();
-      console.log('getting categories');
-    }
-    // END OF CATEGORIES
+    // const getPhotos = (e) => {
+    //   e.preventDefault();
+    //   console.log('getting categories');
+    // }
+    // // END OF CATEGORIES
 
 
   useEffect( () => {
@@ -61,7 +61,7 @@ function App() {
         <Header cart={product} click={product}/>
 
     {/* dropdown component*/}
-     <PhotoForm getPhotos={getPhotos} />
+     {/* <PhotoForm getPhotos={getPhotos} /> */}
     {/* end of dropdown component*/}
 
     {product.length === 0
