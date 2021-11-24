@@ -32,6 +32,14 @@ function App() {
     }
     // end of add to cart
 
+    // this is categories
+    const [categories, setCategories] = useState([])
+
+    const chooseCategory = (category) => {
+      console.log('you clicked a category')
+      setCategories([...categories, category])
+    }
+    // end of categories
 
 
   useEffect( () => {
@@ -49,9 +57,20 @@ function App() {
 }, []);
 
   return(
+<>
     <div className='App'>
         <Header cart={product} click={product}/>
-        {product.length === 0
+
+    <div className='categories'>
+      <ul>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Men's Fashion</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Women's Fashion</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Electronics</a></li>
+        <li onClick={ () => {chooseCategory} }> <a href="#">Jewelery</a></li>
+      </ul>
+    </div>
+    
+    {product.length === 0
           ? ( 
             <div className="loader"></div>
             ) : (
@@ -59,7 +78,7 @@ function App() {
           )}
         <Footer />
       </div>
-  
+</>
   )
 }
 
