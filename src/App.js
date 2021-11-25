@@ -20,21 +20,18 @@ function App() {
 
   // piece of state to hold the products
   const [product, setProduct] = useState([]);
+  // THIS ADDS TO CART
+  const [cart, setCart] = useState([]);
 
-
-    // THIS ADDS TO CART
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (product) => {
-        console.log('add to cart +1')
-        setCart([...cart, product]);
-    }
-    // END OF ADD TO CART
+  const addToCart = (product) => {
+      console.log('add to cart +1')
+      setCart([...cart, product]);
+  }
+  // END OF ADD TO CART
 
 
   useEffect( () => {
   // in here well call the api using axios
-
   axios({
     url: 'https://fakestoreapi.com/products', 
     method: 'GET',
