@@ -134,7 +134,7 @@ nav li{
   text-align: center;
 }
 
-nav li a{
+nav a{
   text-decoration: none;
   color: black;
 }
@@ -157,26 +157,38 @@ nav li a{
   background: #ffffff;
   margin: 10px;
   padding: 20px;
-  box-shadow: 5px 5px 10px rgb(192, 189, 189);
+  box-shadow: 7px 5px 10px rgb(178, 172, 172);
   border-radius: 5px;
   border: 3px solid #708090;
   text-align: center;
   width: calc( 50% - 20px)
 }
 
-.content h1 h2 h3{
-  font-size: 25px;
+.container h2{
+  font-size: 20px;
+  text-align: center;
+}
+
+.container h3{
+  font-size: 30px;
   text-align: center;
 }
 
 .content img{
-  width: 30%;
+  width: 40%;
   box-shadow: -1px 0px 0px rgba(0, 0, 0, 0, 0.06);
 }
 
 /* FOOTER STYLING FOOTER STYLING FOOTER STYLING FOOTER STYLING */
 footer{
-  background: #ac7b75;
+  background: #708090;
   font-size: 2rem;
+  text-align: center;
+  padding: 15px;
+  margin-top: 25px;
 }
 
+footer a{
+  text-decoration: none;
+  color: black;
+}

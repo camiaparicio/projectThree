@@ -5,7 +5,7 @@ function Footer() {
     return(
         <footer>
             <div className="wrapper">
-                <p>Created by Camila ✨ <a href="www.junocollege.com">Juno College</a></p>
+                <p>Created by Camila <a href="https://github.com/camiaparicio/projectThree">at Juno College</a></p>
             </div>
         </footer>
     )
