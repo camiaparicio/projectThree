@@ -3,7 +3,6 @@ import React from 'react';
 function Items(props) {
   // console.log(props)
 
-
     return(
 
       <div className="wrapper">

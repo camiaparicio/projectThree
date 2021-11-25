@@ -76,6 +76,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 	height: 60vh;
+  min-height: 70vh;
 }
 
 header h1{
@@ -192,3 +193,50 @@ footer a{
   text-decoration: none;
   color: black;
 }
+
+/* MEDIA QUERIES */
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+
+  .dropdown {
+      display: none;
+  }
+
+  div.movie:nth-child(n) {
+  width: 100%;
+  }
+
+  .logo p{
+  font-size: 25px;
+  }
+  
+  nav ul {
+    font-size: 12px;
+  }
+  
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .content{
+    width: 90%;
+  }
+  
+  .headerBox h1{
+    margin: 0 auto;
+  }
+  
+  ul.nav:nth-child(1) {
+    display: none;
+  }
+  
+  .headerBox {
+    width: 90%;
+    padding-top: 100px;
+  }
+  .logo p{
+    font-size: 25px;
+    }
+}
+

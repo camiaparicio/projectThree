@@ -30,6 +30,7 @@ function App() {
   // END OF ADD TO CART
 
 
+
   useEffect( () => {
   // in here well call the api using axios
   axios({
